@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Current Weather</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<img src="https://source.unsplash.com/random/">
+<div class="weather">
+	<input type="text" id="city_name" placeholder="Enter city name"><br>
+	<button type="button">Cheak weather</button>
+	<h1>Country</h1>
+	<h2 id = "country">Bangladesh</h2>
+	<h3>Current Time</h3>
+	<h4 id = "localtime">0000-00-00 00:00</h4>
+	<h3>Current Temparature <span><sup>o</sup> celcious</span></h3>
+	<p id = "temp">Temparature</p>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+$("button").click(function(){
+
+		var city_name=$("#city_name").val();
+
+		$.ajax({
+			url:"http://api.apixu.com/v1/current.json?key=66f524b9642b4970aa2171137171209&q="+ city_name,
+			dataType:"json",
+			success:function(data){
+				$("p").text(data.current.temp_c);
+				$("h2").text(data.location.country);
+				$("h4").text(data.location.localtime);
+				console.log(data);
+			},
+			error:function(){
+				$("h2").text("Enter valid city name")
+			}
+
+	});
+	})
+
+
+
+
+
+
+
+
+
+});
+</script>
+</body>
+</html>

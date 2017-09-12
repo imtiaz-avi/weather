@@ -1,0 +1,19 @@
+body{
+	background:
+}
+
+.weather{
+	padding: 50px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	box-shadow: 0 0 3px #888;
+	text-align: center;
+	background: rgba(255, 175, 80, 0.5);
+	color: white;
+}
+img{
+	width: 100%
+}
